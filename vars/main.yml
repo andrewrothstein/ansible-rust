@@ -1,0 +1,5 @@
+---
+# vars file for rust
+rust_name : 'rust-{{rust_ver}}-{{rust_platform}}'
+rust_tgz : '{{rust_name}}.tar.gz'
+rust_url : '{{rust_mirror}}/{{rust_tgz}}'
