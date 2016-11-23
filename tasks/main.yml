@@ -1,15 +1,9 @@
 ---
-# tasks file for rust
 - name: download rust-lang...
+  become: yes
+  become_user: root
   get_url: >
-    url=https://static.rust-lang.org/rustup.sh
-    dest=/tmp/rustup.sh
-    mode=0755
-    owner=root
-    group=root
-
-- name: install....
-  command: /tmp/rustup.sh
-  args:
-    creates: /usr/local/bin/rustc
+    url={{rust_url}}
+    dest=/tmp/{{rust_tgz}}
+    mode=0644
 
