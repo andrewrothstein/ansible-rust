@@ -12,13 +12,24 @@ galaxy_info:
         - 7
     - name: Fedora
       versions:
-        - 21
+        - 23
+        - 24
+        - 25
+        - 26
     - name: Ubuntu
       versions:
         - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
 
   categories:
     - development
 
-dependencies: []
-  
+dependencies:
+  - src: andrewrothstein.bash
+    version: v1.0.5
+  - src: andrewrothstein.alpine-glibc-shim
+    version: v2.0.4

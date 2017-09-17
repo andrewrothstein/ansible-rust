@@ -1,9 +1,37 @@
 ---
-- name: download rust-lang...
+- name: download rustup...
   become: yes
   become_user: root
-  get_url: >
-    url={{rust_url}}
-    dest=/tmp/{{rust_tgz}}
-    mode=0644
+  get_url:
+    url: '{{rustup_url}}'
+    dest: '{{rustup_install_dir}}/rustup'
+    mode: 0755
 
+- name: initialize bash completions...
+  become: yes
+  become_user: root
+  shell: rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+  args:
+    creates: /etc/bash_completion.d/rustup.bash-completion
+
+- name: install rust...
+  become: yes
+  become_user: root
+  with_items: '{{rustup_toolchains}}'
+  command: rustup toolchain install {{item}}
+
+- name: setting default toolchain
+  become: yes
+  become_user: root
+  command: rustup default {{rustup_default_toolchain}}
+
+- name: adding cargo, et. al to the default login shell
+  become: yes
+  become_user: root
+  with_items:
+    - f: cargo.sh
+      d: /etc/profile.d
+  template:
+    src: '{{item.f}}.j2'
+    dest: '{{item.d}}/{{item.f}}'
+    mode: '{{item.m|default("0644")}}'
