@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: rust-lang role
+  description: installs rustup
   company: BlackRock
   license:
     - MIT
