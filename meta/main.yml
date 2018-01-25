@@ -32,4 +32,4 @@ dependencies:
   - src: andrewrothstein.bash
     version: v1.0.5
   - src: andrewrothstein.alpine-glibc-shim
-    version: v2.0.4
+    version: v2.0.5
