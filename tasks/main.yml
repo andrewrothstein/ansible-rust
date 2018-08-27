@@ -10,7 +10,7 @@
 - name: initialize bash completions...
   become: yes
   become_user: root
-  shell: rustup completions bash > /etc/bash_completion.d/rustup.bash-completion
+  shell: '{{rustup_install_dir}}/rustup completions bash > /etc/bash_completion.d/rustup.bash-completion'
   args:
     creates: /etc/bash_completion.d/rustup.bash-completion
 
@@ -18,12 +18,12 @@
   become: yes
   become_user: root
   with_items: '{{rustup_toolchains}}'
-  command: rustup toolchain install {{item}}
+  command: '{{rustup_install_dir}}/rustup toolchain install {{item}}'
 
 - name: setting default toolchain
   become: yes
   become_user: root
-  command: rustup default {{rustup_default_toolchain}}
+  command: '{{rustup_install_dir}}/rustup default {{rustup_default_toolchain}}'
 
 - name: adding cargo, et. al to the default login shell
   become: yes
