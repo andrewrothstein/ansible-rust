@@ -3,15 +3,13 @@
 rustup_mirror : https://static.rust-lang.org/rustup/dist
 rustup_platform : x86_64-unknown-linux-gnu
 
-rustup_install_dir: /usr/local/bin
-
 rustup_toolchains:
   - stable
   - beta
 
 rustup_default_toolchain: stable
 
-rustup_home: '{{ansible_env.HOME}}/.rustup'
-cargo_home: '{{ansible_env.HOME}}/.cargo'
+rustup_home: '{{ ansible_env.HOME }}/.rustup'
+
 
 
