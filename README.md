@@ -1,6 +1,6 @@
 andrewrothstein.rust
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-rust.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-rust)
+![Build Status](https://github.com/andrewrothstein/ansible-rust/actions/workflows/build.yml/badge.svg)
 
 Installs [Rust](https://www.rust-lang.org) with rustup
 
