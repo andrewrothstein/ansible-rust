@@ -1,7 +1,7 @@
 ---
 # defaults file for rust
-rustup_mirror : https://static.rust-lang.org/rustup/dist
-rustup_platform : x86_64-unknown-linux-gnu
+rustup_mirror: https://static.rust-lang.org/rustup/dist
+rustup_platform: '{{ ansible_architecture }}-unknown-linux-gnu'
 
 rustup_toolchains:
   - stable
@@ -10,6 +10,3 @@ rustup_toolchains:
 rustup_default_toolchain: stable
 
 rustup_home: '{{ ansible_env.HOME }}/.rustup'
-
-
-
