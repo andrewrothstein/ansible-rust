@@ -1,4 +1,6 @@
 ---
+- include_role:
+    name: andrewrothstein.bash
 - name: check for existing install
   stat:
     path: '{{ rustup_home }}'
