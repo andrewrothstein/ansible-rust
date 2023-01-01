@@ -2,3 +2,9 @@
 - hosts: all
   roles:
     - role: '{{ playbook_dir }}'
+  tasks:
+    - command: rustc --version
+      register: rust_test_output
+    - name: rustc --version
+      debug:
+        msg: '{{ rust_test_output.stdout }}'
