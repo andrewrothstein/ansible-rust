@@ -1,7 +1,9 @@
 ---
 # defaults file for rust
 rustup_mirror: https://static.rust-lang.org/rustup/dist
-rustup_platform: '{{ ansible_architecture }}-unknown-linux-gnu'
+rustup_os_map:
+  Linux: linux-gnu
+  Darwin: apple-darwin
 
 rustup_toolchains:
   - stable
