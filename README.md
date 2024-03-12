@@ -2,7 +2,7 @@ andrewrothstein.rust
 =========
 ![Build Status](https://github.com/andrewrothstein/ansible-rust/actions/workflows/build.yml/badge.svg)
 
-Installs [Rust](https://www.rust-lang.org) with rustup
+    Installs [Rust](https://www.rust-lang.org) with [rustup](https://github.com/rust-lang/rustup/blob/master/CHANGELOG.md).
 
 Requirements
 ------------
