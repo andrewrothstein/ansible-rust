@@ -20,7 +20,7 @@
       args:
         creates: '{{ rustup_home }}'
   always:
-    - name: cleanup
+    - name: Cleanup
       ansible.builtin.file:
         path: '{{ rustup_exe }}'
         state: absent
