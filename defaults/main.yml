@@ -11,4 +11,6 @@ rustup_toolchains:
 
 rustup_default_toolchain: stable
 
-rustup_home: '{{ ansible_env.HOME }}/.rustup'
+rustup_profile: default
+rustup_home: '{{ ansible_env.HOME }}/.cargo'
+rustup_install_dir: '{{ ansible_env.HOME }}/.local/bin'

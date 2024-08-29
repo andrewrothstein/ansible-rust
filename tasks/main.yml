@@ -2,25 +2,16 @@
 - name: Installing andrewrothstein.bash
   ansible.builtin.include_role:
     name: andrewrothstein.bash
-- name: Check for existing install
+- name: Check for existing install at {{ rustup_exe }}
   ansible.builtin.stat:
-    path: '{{ rustup_home }}'
+    path: '{{ rustup_exe }}'
   changed_when: false
   register: rustup_home_binary
-- name: Downloading and installing rustup
+- name: Downloading {{ rustup_init_url }} to {{ rustup_exe }}
   when: not rustup_home_binary.stat.exists
-  block:
-    - name: Download rustup-init...
-      ansible.builtin.get_url:
-        url: '{{ rustup_init_url }}'
-        dest: '{{ rustup_exe }}'
-        mode: '755'
-    - name: Installing rust...
-      ansible.builtin.command: '{{ rustup_exe }} -y'
-      args:
-        creates: '{{ rustup_home }}'
-  always:
-    - name: Cleanup
-      ansible.builtin.file:
-        path: '{{ rustup_exe }}'
-        state: absent
+  ansible.builtin.get_url:
+    url: '{{ rustup_init_url }}'
+    dest: '{{ rustup_exe }}'
+    mode: '755'
+- name: Initializing rust by executing '{{ rustup_init_cmd }}'
+  ansible.builtin.command: '{{ rustup_init_cmd }}'
